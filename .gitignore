@@ -1,0 +1,6 @@
+*.lock
+*.user
+*.vsidx
+/AlarmClock/.vs
+/AlarmClock/bin/
+/AlarmClock/obj/
