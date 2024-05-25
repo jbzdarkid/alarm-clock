@@ -23,7 +23,7 @@ public partial class BLEScanner : ContentPage {
     private async Task LoadDeviceAttributes(Guid deviceId) {
         IAdapter adapter = CrossBluetoothLE.Current.Adapter;
         IDevice device = adapter.DiscoveredDevices.FirstOrDefault(d => d.Id == deviceId);
-        
+
         for (int i = 0; i < 3; i++) {
             try {
                 await adapter.ConnectToDeviceAsync(device);

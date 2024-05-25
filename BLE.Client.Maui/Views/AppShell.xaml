@@ -10,7 +10,7 @@
         <ShellContent Title="BLE Scanner"
             ContentTemplate="{DataTemplate local:BLEScanner}"
             Route="BLEScanner" />
-            
+
         <ShellContent Title="Log"
             ContentTemplate="{DataTemplate local:LogViewer}"
             Route="LogViewer" />
