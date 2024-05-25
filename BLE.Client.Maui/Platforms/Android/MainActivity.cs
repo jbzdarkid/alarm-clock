@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.Content.PM;
-using Android.OS;
 
 namespace BLE.Client.Maui;
 
@@ -8,4 +7,3 @@ namespace BLE.Client.Maui;
 public class MainActivity : MauiAppCompatActivity
 {
 }
-

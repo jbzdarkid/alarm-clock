@@ -1,10 +1,9 @@
-﻿using Foundation;
+﻿using BLE.Client.Maui.Views;
+using Foundation;
 
-namespace BLE.Client.Maui.Views;
+namespace BLE.Client.Maui;
 
 [Register("AppDelegate")]
-public class AppDelegate : MauiUIApplicationDelegate
-{
+public class AppDelegate : MauiUIApplicationDelegate {
     protected override MauiApp CreateMauiApp() => App.CreateMauiApp();
 }
-
