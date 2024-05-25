@@ -1,7 +1,6 @@
 ﻿namespace BLE.Client.Maui.Views;
 
-public partial class App : Application
-{
+public partial class App : Application {
     public App() {
 		InitializeComponent();
         MainPage = new AppShell();
