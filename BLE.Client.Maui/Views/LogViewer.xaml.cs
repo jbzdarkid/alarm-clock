@@ -1,14 +1,16 @@
-﻿using BLE.Client.Maui.ViewModels;
+﻿using System.Collections.ObjectModel;
 
 namespace BLE.Client.Maui.Views;
 
 public partial class LogViewer : ContentPage
 {
-	private readonly LogViewModel logViewModel = new();
+    public static void Log(string message) => MainThread.BeginInvokeOnMainThread(() => LogMessages.Add(message));
 
-	public LogViewer ()
-	{
+    public static readonly ObservableCollection<string> LogMessages = [];
+
+    public LogViewer() {
         InitializeComponent();
-        BindingContext = logViewModel;
     }
+
+    private void ClearLogs(object sender, EventArgs e) => LogMessages.Clear();
 }

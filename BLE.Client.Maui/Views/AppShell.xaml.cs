@@ -1,4 +1,4 @@
-﻿namespace BLE.Client.Maui;
+﻿namespace BLE.Client.Maui.Views;
 
 public partial class AppShell : Shell
 {
@@ -7,4 +7,3 @@ public partial class AppShell : Shell
 		InitializeComponent();
 	}
 }
-
