@@ -2,6 +2,7 @@
 using Plugin.BLE;
 using Plugin.BLE.Abstractions.Contracts;
 using Plugin.BLE.Abstractions.EventArgs;
+using Plugin.BLE.Abstractions.Exceptions;
 
 namespace BLE.Client.Maui;
 
@@ -55,10 +56,46 @@ public class BLEScannerViewModel {
     }
 
     private void OnDeviceDiscovered(object sender, DeviceEventArgs args) {
-        MainThread.BeginInvokeOnMainThread(() => {
-            var device = args.Device;
-            LogViewer.Log($"Discovered device {device.Id}: {device.Name}");
-            // device.
-        });
+        var device = args.Device;
+        LogViewer.Log($"Discovered device {device.Id}: {device.Name}");
+        this.LoadDeviceAttributes(device);
     }
-}
+
+    private static readonly Guid LIGHT_CHARACTERISTIC = new("932c32bd-0002-47a2-835a-a8d455b859dd");
+    private static readonly Guid BRIGHTNESS_CHARACTERISTIC = new("932c32bd-0003-47a2-835a-a8d455b859dd");
+    private static readonly Guid TEMPERATURE_CHARACTERISTIC = new("932c32bd-0004-47a2-835a-a8d455b859dd");
+
+    private async Task LoadDeviceAttributes(IDevice device) {
+        IAdapter adapter = CrossBluetoothLE.Current.Adapter;
+
+        for (int i = 0; i < 3; i++)
+        {
+            try
+            {
+                await adapter.ConnectToDeviceAsync(device);
+                break;
+            } catch (DeviceConnectionException ex)
+            {
+                await App.ShowAlertAsync(ex.ToString());
+            }
+        }
+
+        var services = await device.GetServicesAsync();
+        foreach (IService service in services)
+        {
+            var characteristics = await service.GetCharacteristicsAsync();
+            foreach (ICharacteristic characteristic in characteristics)
+            {
+                if (characteristic.Id == LIGHT_CHARACTERISTIC)
+                {
+                    int k = 1;
+                } else if (characteristic.Id == BRIGHTNESS_CHARACTERISTIC)
+                {
+                    int k = 1;
+                } else if (characteristic.Id == TEMPERATURE_CHARACTERISTIC)
+                {
+                    int k = 1;
+                }
+            }
+        }
+    }
