@@ -71,16 +71,22 @@
 	<ItemGroup>
 	  <AndroidResource Remove="Models\**" />
 	  <AndroidResource Remove="Services\**" />
+	  <AndroidResource Remove="ViewModels\**" />
 	  <Compile Remove="Models\**" />
 	  <Compile Remove="Services\**" />
+	  <Compile Remove="ViewModels\**" />
 	  <EmbeddedResource Remove="Models\**" />
 	  <EmbeddedResource Remove="Services\**" />
+	  <EmbeddedResource Remove="ViewModels\**" />
 	  <MauiCss Remove="Models\**" />
 	  <MauiCss Remove="Services\**" />
+	  <MauiCss Remove="ViewModels\**" />
 	  <MauiXaml Remove="Models\**" />
 	  <MauiXaml Remove="Services\**" />
+	  <MauiXaml Remove="ViewModels\**" />
 	  <None Remove="Models\**" />
 	  <None Remove="Services\**" />
+	  <None Remove="ViewModels\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -99,7 +105,6 @@
 	  <None Remove="Resources\Images\scanning.gif" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="ViewModels\" />
 	  <Folder Include="Views\" />
 	</ItemGroup>
 	<ItemGroup>
